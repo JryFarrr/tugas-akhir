@@ -1,0 +1,27 @@
+\chapter*{Abstrak}
+
+\makeatletter
+    \vspace{1cm}
+    \begin{center}
+        \noindent\textbf{\@judul}
+    \end{center}
+
+    \vspace{1cm}
+    \begin{table}[htbp]
+        \begin{tabular}{lcp{0.49\paperwidth}}
+            Nama Mahasiswa / NRP & : & \@nama~/ \@NRP\\
+            Departemen & : & \@departemen~{\singkatan@fakultas}-ITS\\
+            Dosen Pembimbing & : & \pbb@satu
+        \end{tabular}
+    \end{table}
+
+    \vspace{1cm}
+    \noindent
+    \textbf{Abstrak}
+
+     Industri telekomunikasi memiliki tantangan dalam memprediksi pendapatan (\textit{revenue}) layanan SMS internasional yang memiliki karakteristik unik dan dipengaruhi oleh faktor eksternal. Meskipun pendekatan \textit{machine learning} telah banyak digunakan untuk prediksi \textit{revenue}, studi yang mengeksplorasi penggunaan Algoritma Genetika (\textit{Genetic Algorithm}) sebagai teknik optimasi hiperparameter pada model \textit{machine learning}, khususnya dalam konteks prediksi \textit{revenue} layanan SMS internasional, masih relatif terbatas. Penelitian Tugas Akhir ini mengimplementasikan Algoritma Genetika untuk optimasi hiperparameter pada model \textit{machine learning} khususnya \textit{tree based models} untuk mengatasi permasalahan prediksi \textit{revenue} layanan SMS internasional pada perusahaan X. Dataset primer yang digunakan berasal dari trafik SMS internasional perusahaan X pada tahun 2023 sampai 2024. Eksperimen dilakukan dengan membandingkan metode optimasi hiperparameter menggunakan Algoritma Genetika dengan tanpa menggunakan optimasi pada model machine learning berbasis pohon (\textit{tree-based models}). Hasil penelitian ini menunjukkan bahwa penerapan Algoritma Genetika untuk optimasi hiperparameter mampu untuk meningkatkan performansi \textit{tree based models} dalam memprediksi \textit{revenue} dengan WMAPE untuk \textit{XGBoost + GA} sebesar 16.29 \% dan \textit{Random Forest + GA} sebesar 20.97 \%  dibandingkan dengan \textit{baseline} yaitu WMAPE \textit{Random Forest} sebesar 25.37 \% dan WMAPE \textit{XGBoost} sebesar 27.12 \%.
+    
+    % Untuk kata kunci
+    \katakunci{Pendapatan Layanan SMS Internasional, Tree-based Models, Optimasi Hyperparameter, Algoritma Genetika}
+    
+\makeatother

@@ -1,0 +1,124 @@
+\documentclass[12pt]{TA-ITS}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{array}
+\usepackage{ragged2e}
+\usepackage[T1]{fontenc}
+\usepackage{adjustbox}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{colortbl}
+\usepackage{pdflscape}
+
+\definecolor{headerblue}{RGB}{31,73,125}
+\definecolor{rowgray}{RGB}{242,242,242}
+
+% -- Definisi warna --
+\definecolor{codebg}{RGB}{248, 249, 250}
+\definecolor{codeframe}{RGB}{210, 215, 220}
+\definecolor{kw}{RGB}{0, 112, 193}
+\definecolor{str}{RGB}{163, 21, 21}
+\definecolor{cmt}{RGB}{106, 153, 85}
+\definecolor{num}{RGB}{181, 101, 29}
+\definecolor{builtin}{RGB}{64, 120, 192}
+\definecolor{titlecolor}{RGB}{30, 80, 150}
+\definecolor{sectioncolor}{RGB}{40, 95, 165}
+\definecolor{headerbg}{RGB}{230, 238, 250}
+% ============================================================
+% lampiran_setup.tex
+% File ini SUDAH INCLUDE semua package yang dibutuhkan.
+% Cukup letakkan di preamble dokumen utama:
+%
+%     \input{lampiran_setup}
+%
+% sebelum \begin{document} -- tidak perlu tambah package lain.
+% ============================================================
+
+% ── Package (hanya load jika belum ada) ────────────────────
+\makeatletter
+\@ifpackageloaded{xcolor}{}{\usepackage{xcolor}}
+\@ifpackageloaded{listings}{}{\usepackage{listings}}
+\@ifpackageloaded{caption}{}{\usepackage{caption}}
+\@ifpackageloaded{mdframed}{}{\usepackage{mdframed}}
+\@ifpackageloaded{amsmath}{}{\usepackage{amsmath}}
+\makeatother
+
+% ── Warna ───────────────────────────────────────────────────
+\definecolor{codebg}{RGB}{248, 249, 250}
+\definecolor{codeframe}{RGB}{210, 215, 220}
+\definecolor{kw}{RGB}{0, 112, 193}
+\definecolor{str}{RGB}{163, 21, 21}
+\definecolor{cmt}{RGB}{106, 153, 85}
+\definecolor{builtin}{RGB}{64, 120, 192}
+\definecolor{headerbg}{RGB}{230, 238, 250}
+\definecolor{breakcol}{RGB}{160, 160, 160}
+
+% ── Style listing Python ────────────────────────────────────
+\lstdefinestyle{pycode}{
+    language=Python,
+    backgroundcolor=\color{codebg},
+    basicstyle=\ttfamily\footnotesize,
+    keywordstyle=\color{kw}\bfseries,
+    stringstyle=\color{str},
+    commentstyle=\color{cmt}\itshape,
+    numberstyle=\tiny\color{gray},
+    emph={True,False,None,self},
+    emphstyle={\color{builtin}\bfseries},
+    numbers=left,
+    numbersep=8pt,
+    stepnumber=1,
+    tabsize=4,
+    showstringspaces=false,
+    breaklines=true,
+    breakatwhitespace=false,
+    breakindent=16pt,
+    postbreak=\mbox{\textcolor{breakcol}{$\hookrightarrow$}\space},
+    columns=fullflexible,
+    keepspaces=true,
+    frame=single,
+    framerule=0.5pt,
+    rulecolor=\color{codeframe},
+    xleftmargin=22pt,
+    xrightmargin=0pt,
+    framexleftmargin=22pt,
+    framexrightmargin=0pt,
+    captionpos=b,
+    aboveskip=8pt,
+    belowskip=4pt,
+}
+\makeatother
+% SETELAH ACC
+\pagestyle{TA}
+
+% Singkatan Tugas Akhir
+\newcommand{\ta}{penelitian Tugas Akhir}
+\newcommand{\TA}{Penelitian Tugas Akhir}
+
+% Metode & model
+\newcommand{\method}{}
+\newcommand{\smethod}{}
+
+\begin{document}
+    \input{tugas-akhir/contents/000_metadata}
+    \input{tugas-akhir/front-matter/000_front-matter}
+    \input{tugas-akhir/contents/XXX_abstrak}
+    \input{tugas-akhir/contents/XXX_abstract}
+    \input{tugas-akhir/contents/XXX_preface}
+    \newpage
+    \listoffigures
+    \input{tugas-akhir/contents/100_symbols}
+    \newpage
+    \tableofcontents
+    \newpage
+    \setstretch{1.2}
+    \pagenumbering{arabic}
+    \setcounter{page}{1}
+    \input{tugas-akhir/contents/001_intro}
+    \input{tugas-akhir/contents/002_literature}
+    \input{tugas-akhir/contents/003_method}
+    \input{tugas-akhir/contents/004_result}
+    \input{tugas-akhir/contents/005_summary}
+    \input{tugas-akhir/contents/007_bibliography}
+    \input{tugas-akhir/contents/006_appendix} % Bisa dikasih `comment` kalau tidak dipakai
+    \input{tugas-akhir/back-matter/999_back-matter}
+\end{document}

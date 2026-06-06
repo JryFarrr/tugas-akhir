@@ -1,0 +1,59 @@
+\chapter{Pendahuluan}\label{ch:introduction}
+    
+    \section{Latar Belakang Masalah}\label{sec:background}
+
+    Industri telekomunikasi global, khususnya pada segmen \textit{wholesale}, mengandalkan layanan pesan internasional seperti SMS \textit{Application-to-Person} (A2P) sebagai salah satu sumber pendapatan (\textit{revenue}) yang signifikan. Layanan SMS internasional memiliki karakteristik unik karena melibatkan banyak operator lintas negara, rute interkoneksi yang beragam, serta dipengaruhi oleh berbagai faktor eksternal seperti regulasi antarnegara, fluktuasi nilai tukar mata uang, dan pola musiman yang berbeda di setiap wilayah geografis \cite{10.1145/3690771.3690784}. Sebagai salah satu penyedia layanan \textit{wholesale} internasional, perusahaan X menghadapi kompleksitas serupa dalam mengelola pendapatan dari layanan ini.
+
+    Tantangan utama yang dihadapi perusahaan X sebagai operator telekomunikasi saat ini adalah meningkatnya volume lalu lintas (\textit{traffic}) yang tidak selalu diiringi dengan peningkatan pendapatan. Fenomena ini disebabkan oleh kebocoran pendapatan (\textit{revenue leakage}) yang dipicu oleh berkembangnya teknologi alternatif, seperti \textit{Flash Calls} yang melewati (\textit{bypass}) jalur SMS tradisional, \textit{gray routes}, serta mode otentikasi alternatif yang lebih murah seperti VOTP \cite{telin2026leakage}. Berdasarkan laporan Mobilesquared dan VOX Carrier, akumulasi kebocoran pendapatan akibat \textit{gray routes} pada periode 2020--2024 mencapai USD 37,1 miliar, atau rata-rata USD 7,69 miliar per tahun \cite{mobilesquared2021}. Kondisi ini menunjukkan bahwa kontrol perusahaan penyedia layanan \textit{wholesale} internasional seperti perusahaan X semakin menurun sehingga pendapatan kedepan menjadi semakin sulit diprediksi.
+    
+    Prediksi \textit{revenue} yang akurat memiliki peranan penting bagi operator telekomunikasi untuk mendukung perencanaan operasional, alokasi kapasitas jaringan, penetapan strategi harga, dan pengambilan keputusan strategis jangka pendek maupun jangka panjang \cite{DiFrancescomarino2018GAHyperparameter}. Prediksi yang akurat dapat berfungsi sebagai instrumen deteksi dini, di mana deviasi yang signifikan antara nilai prediksi dan realisasi pendapatan dapat menjadi indikasi awal terjadinya penyimpangan atau kebocoran pendapatan. Pendapatan layanan telekomunikasi, termasuk layanan SMS internasional, dipengaruhi oleh berbagai faktor seperti volume trafik, negara tujuan, jenis layanan, serta karakteristik pelanggan. Hubungan antara  faktor-faktor tersebut bersifat non-linear dan dinamis, sehingga sulit jika menggunakan pendekatan statistik konvensional seperti \textit{Autoregressive Integrated Moving Average} (ARIMA) yang mengasumsikan hubungan linear antarvariabel \cite{ZHANG2003159}.
+    
+    Machine learning merupakan pendekatan yang efektif untuk menangani masalah prediksi pendapatan dengan kemampuannya menangkap pola non-linear dan hubungan kompleks dalam data historis \cite{DiFrancescomarino2018GAHyperparameter, Wu2022ParallelGA}. Model-model berbasis deep learning seperti Long Short-Term Memory (LSTM) dan Gated Recurrent Unit (GRU), serta model \textit{ensemble} seperti XGBoost dan Random Forest, telah banyak diaplikasikan dalam berbagai domain \textit{forecasting} termasuk telekomunikasi \cite{Wu2022ParallelGA, mehdary2024}. Meskipun model berbasis sekuensial seperti LSTM menunjukkan performa yang baik pada data deret waktu, model berbasis pohon (\textit{tree-based}) tetap menjadi pilihan populer untuk data tabular karena kemampuannya menangkap hubungan non-linear, robust terhadap \textit{outlier}, serta tidak memerlukan asumsi distribusi data tertentu \cite{grinsztajn2022treebasedmodelsoutperformdeep, Chen2016}. Selain itu, model \textit{tree-based} memiliki ruang hiperparameter yang relatif luas dan sensitif terhadap pengaturan parameter, sehingga kinerjanya sangat dipengaruhi oleh proses optimasi hiperparameter yang digunakan \cite{Probst2019Hyperparameters}.
+
+    Optimasi hiperparameter menjadi tahapan penting dalam pengembangan model \textit{machine learning} yang menentukan kualitas akhir dari model prediksi \cite{Morales2022SurveyMOHPO}. Metode konvensional seperti \textit{Grid Search} dan \textit{Random Search} memiliki keterbatasan signifikan dalam hal efisiensi komputasi, terutama ketika menghadapi ruang pencarian hiperparameter yang besar dan berdimensi tinggi. \textit{Grid Search} melakukan pencarian \textit{exhaustive} (mendalam) yang sangat mahal secara komputasi, sementara \textit{Random Search} meskipun lebih efisien, cenderung melewatkan area optimal dalam ruang pencarian tanpa strategi eksploitasi yang terstruktur \cite{Le2023PINNGA}.
+    
+    Algoritma Genetika (\textit{Genetic Algorithm}/GA) muncul sebagai alternatif yang menjanjikan untuk mengatasi keterbatasan metode optimasi konvensional \cite{Ghatasheh2022ModifiedGA,Deighan2021GANNGravWave}. Keunggulan GA terletak pada kemampuannya melakukan eksplorasi luas dalam ruang pencarian sambil tetap melakukan eksploitasi terhadap solusi-solusi yang menjanjikan, serta kemampuannya menangani optimasi multi-objektif yang mempertimbangkan \textit{trade-off} (kompromi) antara akurasi model dan kompleksitas komputasi \cite{Kobayashi2024DQN_BRKGA, Truong2021TelecomRevenue}. Penelitian-penelitian terkini menunjukkan keberhasilan penerapan GA untuk optimasi hiperparameter di berbagai domain aplikasi. Mehdary et al. (2024) mendemonstrasikan bahwa GA dapat meningkatkan akurasi model XGBoost dari 0.82 menjadi 0.978 dalam aplikasi deteksi \textit{fraud} pada smart grid \cite{Mehdary2024GA_XGBoost}. Le et al. (2023) menjelaskan bahwa GA dapat menghemat hingga 88.03\% biaya komputasi dibanding \textit{Grid Search} dan 39.82\% dibanding \textit{Random Search}, serta mengurangi \textit{test error} rata-rata sebesar 37.40\% pada eksperimen \textit{Physics-Informed Neural Networks} (PINNs) \cite{Le2023PINNGA}.
+    
+    Akan tetapi penelitian sebelumnya belum mengeksplorasi penerapan GA untuk optimasi hiperparameter dan prediksi pendapatan. layanan SMS internasional yang memiliki karakteristik unik seperti  pola temporal yang kompleks serta hubungan antara \textit{supplier} dan \textit{client}. Penelitian ini bertujuan untuk mengisi kesenjangan tersebut dengan mengembangkan dan mengevaluasi penerapan Algoritma Genetika untuk optimasi hiperparameter pada \textit{tree-based models} untuk prediksi total \textit{revenue} layanan SMS internasional di Perusahaan X. Penelitian ini diharapkan dapat memberikan bukti empiris tentang efektivitas GA dalam meningkatkan akurasi prediksi pendapatan (\textit{revenue}) dibandingkan dengan tanpa menggunakan optimasi, khususnya dalam konteks layanan telekomunikasi internasional yang memiliki karakteristik data kompleks.
+    
+    \section{Rumusan Masalah}\label{sec:problem}
+
+    Berdasarkan latar belakang yang telah dijelaskan, terdapat beberapa permasalahan utama yang menjadi fokus penelitian ini, yaitu :
+        % Rumusan Masalah pada Penelitian Tugas Akhir
+        \begin{enumerate}
+ 
+            \item Bagaimana penerapan Algoritma Genetika dapat digunakan untuk mengoptimalkan hiperparameter model prediksi?
+
+            \item Bagaimana mengevaluasi \textit{tree-based models} dengan optimasi hiperparameter menggunakan Algoritma Genetika?
+        \end{enumerate}
+        % 
+
+    \section{Batasan Masalah}\label{sec:limitation}
+    Agar penelitian ini terarah dan fokus, ruang lingkup penelitian dibatasi sebagai berikut:
+        % Batasan Masalah pada Penelitian Tugas Akhir
+        \begin{enumerate}
+            \item Objek penelitian terbatas pada data historis layanan komunikasi internasional  variabel \textit{international charge} dan komponen biaya lainnya sebagai indikator \textit{revenue} (pendapatan).
+            \item Model prediksi yang digunakan dalam penelitian ini dibatasi pada algoritma  machine learning berbasis pohon. (\textit{tree-based models}) yaitu Random Forest dan XGBoost yang performanya dioptimalkan menggunakan GA.
+            % \item Evaluasi metode optimasi hyperparameter hanya dibandingkan dengan metode optimasi populer konvensional yaitu \textit{Random Search} dan \textit{Grid Search}.
+        \end{enumerate}
+        % 
+
+    \section{Tujuan}\label{sec:purpose}
+    Menjawab dari rumusan masalah, tujuan dari penelitian ini adalah sebagai berikut : 
+        % Tujuan Penelitian Tugas Akhir
+        \begin{enumerate}
+            
+            \item Menerapkan Algoritma Genetika untuk optimasi hiperparameter model prediksi \textit{tree-based}.
+            
+            \item Melakukan evaluasi optimasi hiperparameter menggunakan Algoritma Genetika pada model prediksi \textit{tree-based}.
+        \end{enumerate}
+        % 
+
+    \section{Manfaat}\label{sec:benefit}
+    Manfaat dari penelitian ini dapat dibagi menjadi berikut :
+        % Manfaat Penelitian Tugas Akhir
+        \begin{enumerate}
+                \item Memberikan sistem prediksi pendapatan yang lebih akurat untuk mendukung pengambilan keputusan strategis perusahaan dalam pengelolaan layanan trafik SMS internasional.
+                \item Membantu perusahaan dalam mengefisienkan biaya untuk operasional berdasarkan prediksi pendapatan dari tiap pola data.
+        \end{enumerate}
+        % 

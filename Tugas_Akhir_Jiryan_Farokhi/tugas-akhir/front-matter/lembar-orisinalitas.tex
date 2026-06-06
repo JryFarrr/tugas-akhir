@@ -1,0 +1,73 @@
+\makeatletter
+\chapter*{Pernyataan Orisinalitas}
+
+    \vspace{2cm}
+    \noindent
+    Yang bertanda tangan di sini:
+    
+    \vspace{1cm}
+    \noindent
+    \begin{tabular}{lcp{0.49\paperwidth}}
+        Nama Mahasiswa / NRP & : & \@nama~/ \@NRP \\
+        Departemen           & : & \@departemen   \\
+        Dosen Pembimbing     & : & \ifthenelse{\equal{\pbb@tiga}{}\OR\equal{\pbb@tiga}{ }}
+                                        {
+                                            \ifthenelse{\equal{\pbb@dua}{}\OR\equal{\pbb@dua}{ }}
+                                                {
+                                                    \pbb@satu~/\protect\\&&\NIP@pbb@satu\\
+                                                }
+                                                {
+                                                    \noindent
+                                                       1. \pbb@satu \protect\\&&\hfill~/~\NIP@pbb@satu \\
+                                                    && 2. \pbb@dua  \protect\\&&\hfill~/~\NIP@pbb@dua  \\
+                                                }
+                                        }
+                                        {
+                                            \noindent
+                                               1. \pbb@satu \protect\\&&\hfill~/~\NIP@pbb@satu \\
+                                            && 2. \pbb@dua  \protect\\&&\hfill~/~\NIP@pbb@dua  \\
+                                            && 3. \pbb@tiga \protect\\&&\hfill~/~\NIP@pbb@tiga \\
+                                        }
+    \end{tabular}
+
+    \vspace{1cm}
+    \noindent
+    dengan ini menyatakan bahwa Tugas Akhir dengan judul ``\textbf{\MakeUppercase{\@judul}}'' adalah hasil karya sendiri, bersifat orisinal, dan ditulis dengan mengikuti kaidah penulisan ilmiah.
+
+    \vspace{5mm}
+    \noindent
+    Bilamana di kemudian hari ditemukan ketidaksesuaian dengan pernyataan ini, maka saya bersedia menerima sanksi sesuai dengan ketentuan yang berlaku di Institut Teknologi Sepuluh Nopember.
+
+    \vspace{1cm}
+    \begin{flushright}
+        Surabaya, ~\@tanggal ~\@bulan ~\@tahun
+    \end{flushright}
+
+    \noindent Mengetahui,
+
+    \vspace{1mm}
+\begin{center}
+    \begin{minipage}{.4\textwidth}
+        \centering
+        Dosen Pembimbing,
+
+        \vspace{3cm}
+
+        \underline{\pbb@satu}
+
+        NIP. \NIP@pbb@satu
+    \end{minipage}
+    \hfill
+    \begin{minipage}{.4\textwidth}
+        \centering
+        Mahasiswa,
+
+        \vspace{3cm}
+
+        \underline{\@nama}
+
+        NRP. \@NRP
+    \end{minipage}
+\end{center}
+
+\makeatother
